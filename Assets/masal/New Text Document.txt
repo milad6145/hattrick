@@ -1,0 +1,28 @@
+english:
+ÎæÇåí äÔæí ÑÓæÇ åãÑä ÌãÇÚÊ Ôæ
+Harry Collis When in Rome do az the Romans do
+
+Çæá ÎæÏÊæ ÇÕáÇÍ ˜ä ÈÚÏ ÏíÑÇä Ñæ äÕíÍÊ ˜ä
+Do as I say, not as I do
+------------------------------------------------------------------------------
+france:
+
+äÇã äí˜ ÈåÊÑ ÇÒ ˜ãÑÈäÏ ØáÇ ÇÓÊ
+Bonne renommée vaut mieux que ceinture dorée
+
+(Ó ÎæÈ Èå ÏäÈÇá äÇÏ ÎæÏ ãí ÑæÏ)
+Bon chien chasse de race
+-----------------------------------------------------------------------------
+italy:
+Belle parole non pascono i gatti.
+ÈÇ ˜áãÇÊ ÒíÈÇ ÑÈå ÑÇ ÛĞÇ äãí ÏåäÏ.
+
+Le bugie hanno le gambe corte
+ÏÑæÛ åÇ ÇåÇí ˜æÊÇåí ÏÇÑäÏ.
+-----------------------------------------------------------------------------
+spain:
+entre un hombre y una mujer no hay amistad posible. hay amor, odio, pasi?n, pero no amistad
+Èíä í˜ Òä æ í˜ ãÑÏ ÏæÓÊí Çã˜Çä ĞíÑ äíÓÊ. ÚÔŞ¡ÇÍÓÇÓ æ ÊäİÑ åÓÊ. ÇãÇ ÏæÓÊí äå
+para bien morir, bien vivir
+ÈÑÇí ÎæÈ ãÑÏä¡ ÎæÈ ÒäÏí ˜ÑÏä
+-----------------------------------------------------------------------------
