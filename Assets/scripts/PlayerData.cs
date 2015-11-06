@@ -10,5 +10,6 @@ class PlayerData {
 	
 	// Add new variables for loading and saving here.
 	public int experiencePoints=0;
+	public int test=0;
 	public int playerLevel=0;
 }
