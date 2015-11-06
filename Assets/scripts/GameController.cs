@@ -4,7 +4,7 @@ using System.Collections;
 
 public class GameController : MonoBehaviour {
 
-	public Camera camera;
+	public Camera cameraInstance;
 	public GameObject[] balls;
 	public float timeLeft;
 	public Text timerText;
@@ -12,6 +12,7 @@ public class GameController : MonoBehaviour {
 	public GameObject restartButton;
 	public GameObject spalshScreen;
 	public GameObject startButton;
+	public GameObject exitButton;
 	public hatController hat_controller;
 //-------------------------------------------------------------
 
@@ -22,13 +23,21 @@ public class GameController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		playing=false;
-		if(camera==null)
-			camera=Camera.main;
+		///////////////////////////////////////////////////////////////////////////////////////
+		// LevelControl class
+		LevelControl.setRequierLevel();
+		for(int i=0;i<6;i++)
+		{
+			balls[i]=(GameObject)Instantiate(LevelControl.balls[i]);
+		}
+		///////////////////////////////////////////////////////////////////////////////////////
+		if(cameraInstance==null)
+			cameraInstance=Camera.main;
 		Vector3 upperCorner=new Vector3(Screen.width,Screen.height,0.0f);
-		Vector3 targetWidth=camera.ScreenToWorldPoint(upperCorner);
+		Vector3 targetWidth=cameraInstance.ScreenToWorldPoint(upperCorner);
 		float ballWidth = balls[0].GetComponent<Renderer>().bounds.extents.x;
-		
 		maxWidth=targetWidth.x-ballWidth;
+
 	}
 //-------------------------------------------------------------	
 	void FixedUpdate()

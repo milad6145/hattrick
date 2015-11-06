@@ -6,7 +6,7 @@ public class score : MonoBehaviour
 {
 
 	public Text scoreText;
-	public int ballValue;
+	public int ballValue=2;
 	private int Score;
 //-------------------------------------------------------------
 	void Start ()
@@ -18,6 +18,7 @@ public class score : MonoBehaviour
 	public void OnTriggerEnter2D ()
 	{
 		Score += ballValue;
+		LevelControl.setScore(Score);
 		updateScore ();
 	}
 //-------------------------------------------------------------
@@ -25,6 +26,7 @@ public class score : MonoBehaviour
 	{
 		if (collision.gameObject.tag == "Bomb") {
 			Score -= ballValue * 2;
+			LevelControl.setScore(Score);
 			updateScore ();
 		}
 	}
