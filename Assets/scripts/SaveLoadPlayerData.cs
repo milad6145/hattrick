@@ -8,7 +8,8 @@ public static class SaveLoadPlayerData {
 
 	//public static int experiencePoints=0;
 	public static int playerLevel=0;
-	public static void Save() {
+	public static void Save()
+	{
 		BinaryFormatter bf = new BinaryFormatter();
 		FileStream file = File.Open(Application.persistentDataPath + "/gameInfo.dat",
 		                            FileMode.Open);
@@ -22,7 +23,8 @@ public static class SaveLoadPlayerData {
 	}
 	
 	public static void Load() {
-		if(File.Exists(Application.persistentDataPath + "/gameInfo.dat")) {
+		if(File.Exists(Application.persistentDataPath + "/gameInfo.dat"))
+		{
 			BinaryFormatter bf = new BinaryFormatter();
 			FileStream file = File.Open(Application.persistentDataPath + "/gameInfo.dat",
 			                            FileMode.Open);
@@ -32,7 +34,8 @@ public static class SaveLoadPlayerData {
 			//experiencePoints = data.experiencePoints;
 			playerLevel = data.playerLevel;
 		}
-		else{
+		else
+		{
 			playerLevel=0;
 		}
 	}

@@ -58,6 +58,7 @@
      <Compile Include="Assets\scripts\score.cs" />
      <Compile Include="Assets\scripts\sortDestruct.cs" />
      <None Include="Assets\masal\New Text Document.txt" />
+     <None Include="Assets\typeFaces\LICENSE.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
