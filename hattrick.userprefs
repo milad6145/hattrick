@@ -1,14 +1,17 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\scripts\LevelControl.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\scripts\GameController.cs">
     <Files>
-      <File FileName="Assets\scripts\LevelControl.cs" Line="105" Column="20" />
-      <File FileName="Assets\scripts\GameController.cs" Line="61" Column="29" />
+      <File FileName="Assets\scripts\LevelControl.cs" Line="30" Column="1" />
+      <File FileName="Assets\scripts\GameController.cs" Line="84" Column="1" />
       <File FileName="Assets\scripts\hatController.cs" Line="1" Column="1" />
+      <File FileName="Assets\scripts\score.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="D:\unity\sample\bycomplete_me\hattrick\Assets\scripts\LevelControl.cs" line="59" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

@@ -7,7 +7,7 @@ public class score : MonoBehaviour
 
 	public Text scoreText;
 	public int ballValue=2;
-	private int Score;
+	public int Score;
 //-------------------------------------------------------------
 	void Start ()
 	{
@@ -31,7 +31,7 @@ public class score : MonoBehaviour
 		}
 	}
 //-------------------------------------------------------------
-	void updateScore ()
+	public void updateScore ()
 	{
 		scoreText.text = " ﺯﺎﯿﺘﻣﺍ\n" + Score;
 	}

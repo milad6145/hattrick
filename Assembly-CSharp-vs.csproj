@@ -55,6 +55,7 @@
      <Compile Include="Assets\scripts\SaveLoadPlayerData.cs" />
      <Compile Include="Assets\scripts\explode.cs" />
      <Compile Include="Assets\scripts\hatController.cs" />
+     <Compile Include="Assets\scripts\masal.cs" />
      <Compile Include="Assets\scripts\score.cs" />
      <Compile Include="Assets\scripts\sortDestruct.cs" />
      <None Include="Assets\masal\New Text Document.txt" />

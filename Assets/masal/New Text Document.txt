@@ -1,28 +1,30 @@
-english:
-ÎæÇåí äÔæí ÑÓæÇ åãÑä ÌãÇÚÊ Ôæ
-Harry Collis When in Rome do az the Romans do
-
-Çæá ÎæÏÊæ ÇÕáÇÍ ˜ä ÈÚÏ ÏíÑÇä Ñæ äÕíÍÊ ˜ä
-Do as I say, not as I do
+english:\n 
+ÎæÇåí äÔæí ÑÓæÇ åãÑä ÌãÇÚÊ Ôæ\n 
+Harry Collis When in Rome do az the Romans do\n 
+\n 
+Çæá ÎæÏÊæ ÇÕáÇÍ ˜ä ÈÚÏ ÏíÑÇä Ñæ äÕíÍÊ ˜ä\n 
+Do as I say, not as I do\n 
 ------------------------------------------------------------------------------
-france:
-
-äÇã äí˜ ÈåÊÑ ÇÒ ˜ãÑÈäÏ ØáÇ ÇÓÊ
-Bonne renommée vaut mieux que ceinture dorée
-
-(Ó ÎæÈ Èå ÏäÈÇá äÇÏ ÎæÏ ãí ÑæÏ)
-Bon chien chasse de race
+france:\n 
+äÇã äí˜ ÈåÊÑ ÇÒ ˜ãÑÈäÏ ØáÇ ÇÓÊ\n 
+Bonne renommée vaut mieux que ceinture dorée\n 
+\n 
+(Ó ÎæÈ Èå ÏäÈÇá äÇÏ ÎæÏ ãí ÑæÏ)\n 
+Bon chien chasse de race\n 
 -----------------------------------------------------------------------------
-italy:
-Belle parole non pascono i gatti.
-ÈÇ ˜áãÇÊ ÒíÈÇ ÑÈå ÑÇ ÛĞÇ äãí ÏåäÏ.
-
-Le bugie hanno le gambe corte
-ÏÑæÛ åÇ ÇåÇí ˜æÊÇåí ÏÇÑäÏ.
+italy:\n 
+ÈÇ ˜áãÇÊ ÒíÈÇ ÑÈå ÑÇ ÛĞÇ äãí ÏåäÏ.\n 
+Belle parole non pascono i gatti.\n 
+\n 
+ÏÑæÛ åÇ ÇåÇí ˜æÊÇåí ÏÇÑäÏ.\n 
+Le bugie hanno le gambe corte\n 
 -----------------------------------------------------------------------------
-spain:
-entre un hombre y una mujer no hay amistad posible. hay amor, odio, pasi?n, pero no amistad
-Èíä í˜ Òä æ í˜ ãÑÏ ÏæÓÊí Çã˜Çä ĞíÑ äíÓÊ. ÚÔŞ¡ÇÍÓÇÓ æ ÊäİÑ åÓÊ. ÇãÇ ÏæÓÊí äå
-para bien morir, bien vivir
-ÈÑÇí ÎæÈ ãÑÏä¡ ÎæÈ ÒäÏí ˜ÑÏä
+spain:\n 
+Èíä í˜ Òä æ í˜ ãÑÏ ÏæÓÊí Çã˜Çä ĞíÑ äíÓÊ. \n 
+ÚÔŞ¡ÇÍÓÇÓ æ ÊäİÑ åÓÊ. ÇãÇ ÏæÓÊí äå\n 
+entre un hombre y una mujer no hay amistad posible.\n 
+ hay amor, odio, pasi?n, pero no amistad\n 
+\n 
+ÈÑÇí ÎæÈ ãÑÏä¡ ÎæÈ ÒäÏí ˜ÑÏä\n 
+para bien morir, bien vivir\n 
 -----------------------------------------------------------------------------

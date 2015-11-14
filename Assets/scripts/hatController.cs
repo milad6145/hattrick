@@ -28,18 +28,12 @@ public class hatController : MonoBehaviour
 		maxWidth = targetWidth.x - hatWidth;
 	}
 
-	void Update ()
-	{
-
-
-	
-
-	}
 	// Update is called once per frame
 	void FixedUpdate ()
 	{
 
-		if (Input.touchCount > 0) {
+		if (Input.touchCount > 0) 
+		{
 			Touch touch = Input.touches [0];
 			if (touch.phase == TouchPhase.Moved || 
 			    touch.phase == TouchPhase.Stationary) 
@@ -57,10 +51,6 @@ public class hatController : MonoBehaviour
 					transform.position = Vector3.MoveTowards(transform.position
 					        	, targetPosition, Time.deltaTime * LevelControl.getHatSpeed());
 				}
-			}
-			else if(touch.phase == TouchPhase.Ended)
-			{
-
 			}
 		}
 	}
