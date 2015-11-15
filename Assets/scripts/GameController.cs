@@ -16,7 +16,8 @@ public class GameController : MonoBehaviour
 	public GameObject spalshScreen;
 	public GameObject startButton;
 	public GameObject exitButton;
-	public hatController hat_controller;
+	////////////////////////////////////////////////////////////////////////////////
+	public hatController hat_controller_Class;
 	public score score_Class;
 //-------------------------------------------------------------
 	private Rigidbody2D body2d;
@@ -25,14 +26,14 @@ public class GameController : MonoBehaviour
 //-------------------------------------------------------------
 	void Awake ()
 	{
-		LevelControl.startLevelGameSituation();
-		hat_controller=GameObject.Find("HatBackSprite").GetComponent<hatController> ();
+		hat_controller_Class=GameObject.Find("HatBackSprite").GetComponent<hatController> ();
 		score_Class=GameObject.Find("HatBackSprite").GetComponent<score> ();
 	}
 //-------------------------------------------------------------
 	// Use this for initialization
 	void Start ()
 	{
+		LevelControl.startLevelGameSituation();
 		playing = false;
 		ballInit = GameObject.Instantiate( UnityEditor.AssetDatabase.LoadAssetAtPath("Assets/prefab/ball.prefab", typeof(GameObject)) )as GameObject;
 		bombInit = GameObject.Instantiate( UnityEditor.AssetDatabase.LoadAssetAtPath("Assets/prefab/BombSpark.prefab", typeof(GameObject)) )as GameObject;
@@ -67,19 +68,20 @@ public class GameController : MonoBehaviour
 //-------------------------------------------------------------	
 	public void startGame ()
 	{
-		//spalshScreen.SetActive (false);
-		//startButton.SetActive (false);
-		hat_controller.toggleControl (true);
+		playing=true;
+		hat_controller_Class.toggleControl (true);
 		StartCoroutine (Spawn ());
 
 	}
 	//-------------------------------------------------------------	
 	public void pauseGame ()
 	{
+		LevelControl.pauseGameSituation();
 		StopCoroutine(Spawn ());
 		playing=false;
-		hat_controller.toggleControl (false);
-		LevelControl.setTimer(Mathf.RoundToInt (timeLeft));
+		hat_controller_Class.toggleControl (false);
+		LevelControl.setTimer(Mathf.RoundToInt(timeLeft));
+
 	}
 	//-------------------------------------------------------------	
 	public void resumeGame ()
@@ -91,8 +93,18 @@ public class GameController : MonoBehaviour
 		this.updateText();
 
 		playing=true;
-		hat_controller.toggleControl (true);
+		hat_controller_Class.toggleControl (true);
 		StartCoroutine (Spawn ());
+
+	}
+	//-------------------------------------------------------------	
+	public void restartGame ()
+	{
+		StopCoroutine(Spawn ());
+		playing=false;
+		hat_controller_Class.toggleControl (false);
+		Application.LoadLevel(Application.loadedLevel);
+
 	}
 //-------------------------------------------------------------	
 	IEnumerator Spawn ()

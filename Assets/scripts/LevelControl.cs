@@ -16,6 +16,7 @@ public static class LevelControl  {
 	public static Text gameOverText;
 	public static Text gameCompleteText;
 	public static Text masal_text;
+	public static Text menu;
 	public static Button restart_Button;
 	public static Button start_Button;
 	public static Button exit_Button;
@@ -23,17 +24,17 @@ public static class LevelControl  {
 	////////////////////////////////////////////////////////////////////////////
 	public static hatController hat_controller;
 	public static GameController game_controller;
-	public enum showMenu{startGame,pauseGame,loseLevelGame,nextLevelGame,finishGame};
 	////////////////////////////////////////////////////////////////////////////
 	public static void init()
 	{
-		gameOverText=GameObject.Find("game_over_text").GetComponent<Text>();
-		gameCompleteText=GameObject.Find("game_complete_text").GetComponent<Text>();
-		masal_text=GameObject.Find("masal_text").GetComponent<Text>();
-		//////////////////////////////////////////////////////////////
 		splashScreen=GameObject.Find("splash_screen").GetComponent<Image>();
 		skySprite=GameObject.Find("SkySprite").GetComponent<SpriteRenderer>();
 		night=GameObject.Find("night");
+		//////////////////////////////////////////////////////////////
+		gameOverText=GameObject.Find("game_over_text").GetComponent<Text>();
+		gameCompleteText=GameObject.Find("game_complete_text").GetComponent<Text>();
+		masal_text=GameObject.Find("masal_text").GetComponent<Text>();
+		masal_text=GameObject.Find("menu").GetComponent<Text>();
 		//////////////////////////////////////////////////////////////
 		start_Button=GameObject.Find("start_Button").GetComponent<Button>();
 		exit_Button=GameObject.Find("exit_Button").GetComponent<Button>();
@@ -117,9 +118,9 @@ public static class LevelControl  {
 	///  set situation for show menu in start level game
 	public static void startLevelGameSituation()
 	{
-		LevelControl.gameOverText.gameObject.SetActive(false);
 		LevelControl.gameCompleteText.gameObject.SetActive(false);
 		LevelControl.masal_text.gameObject.SetActive(false);
+		LevelControl.menu.gameObject.SetActive(false);
 		////////////////////////////////////////////////////////////////////////////
 		LevelControl.splashScreen.gameObject.SetActive(true);
 		LevelControl.start_Button.gameObject.SetActive(true);
@@ -127,6 +128,9 @@ public static class LevelControl  {
 		LevelControl.resume_Button.gameObject.SetActive(false);
 		LevelControl.restart_Button.gameObject.SetActive(true);
 		LevelControl.restart_Button.image.color=new Color(255,255,255,100);
+		////////////////////////////////////////////////////////////////////////////
+		LevelControl.resume_Button.interactable=false;
+		LevelControl.restart_Button.interactable=true;
 	}
 	//-------------------------------------------------------------
 	///  set situation for show menu in pause game
@@ -135,20 +139,25 @@ public static class LevelControl  {
 		LevelControl.gameOverText.gameObject.SetActive(false);
 		LevelControl.gameCompleteText.gameObject.SetActive(false);
 		LevelControl.masal_text.gameObject.SetActive(false);
+		LevelControl.menu.gameObject.SetActive(false);
 		////////////////////////////////////////////////////////////////////////////
+		LevelControl.restart_Button.interactable=false;
 		LevelControl.splashScreen.gameObject.SetActive(true);
 		LevelControl.start_Button.gameObject.SetActive(false);
 		LevelControl.exit_Button.gameObject.SetActive(true);
 		LevelControl.restart_Button.gameObject.SetActive(true);
 		LevelControl.resume_Button.gameObject.SetActive(true);
+		////////////////////////////////////////////////////////////////////////////
+		LevelControl.resume_Button.interactable=false;
+		LevelControl.restart_Button.interactable=false;
 	}
 	//-------------------------------------------------------------
 	///  set situation for show menu in lose game
 	public static void loseGameSituation()
 	{
-		LevelControl.gameOverText.gameObject.SetActive(false);
 		LevelControl.gameCompleteText.gameObject.SetActive(false);
 		LevelControl.masal_text.gameObject.SetActive(false);
+		LevelControl.menu.gameObject.SetActive(false);
 		////////////////////////////////////////////////////////////////////////////
 		LevelControl.splashScreen.gameObject.SetActive(true);
 		LevelControl.start_Button.gameObject.SetActive(false);
@@ -156,17 +165,37 @@ public static class LevelControl  {
 		LevelControl.restart_Button.gameObject.SetActive(true);
 		LevelControl.resume_Button.gameObject.SetActive(true);
 		LevelControl.resume_Button.image.color=new Color(255,255,255,100);
-
+		////////////////////////////////////////////////////////////////////////////
+		LevelControl.resume_Button.interactable=true;
+		LevelControl.restart_Button.interactable=false;
 	}
 	//-------------------------------------------------------------
 	///  set situation for show menu in finish game
 	public static void finishsGameSituation()
 	{
-		LevelControl.gameOverText.gameObject.SetActive(false);
 		LevelControl.gameCompleteText.gameObject.SetActive(false);
 		LevelControl.masal_text.gameObject.SetActive(false);
+		LevelControl.menu.gameObject.SetActive(false);
 		////////////////////////////////////////////////////////////////////////////
 		LevelControl.splashScreen.gameObject.SetActive(true);
+		LevelControl.start_Button.gameObject.SetActive(false);
+		LevelControl.exit_Button.gameObject.SetActive(false);
+		LevelControl.resume_Button.gameObject.SetActive(false);
+		LevelControl.restart_Button.gameObject.SetActive(false);
+		////////////////////////////////////////////////////////////////////////////
+		LevelControl.resume_Button.interactable=false;
+		LevelControl.restart_Button.interactable=false;
+	}
+	//-------------------------------------------------------------
+	///  set situation for play game
+	public static void playGameSituation()
+	{
+		LevelControl.gameOverText.gameObject.SetActive(true);
+		LevelControl.gameCompleteText.gameObject.SetActive(false);
+		LevelControl.masal_text.gameObject.SetActive(false);
+		LevelControl.menu.gameObject.SetActive(false);
+		////////////////////////////////////////////////////////////////////////////
+		LevelControl.splashScreen.gameObject.SetActive(false);
 		LevelControl.start_Button.gameObject.SetActive(false);
 		LevelControl.exit_Button.gameObject.SetActive(false);
 		LevelControl.resume_Button.gameObject.SetActive(false);
