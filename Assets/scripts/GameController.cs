@@ -6,7 +6,7 @@ public class GameController : MonoBehaviour
 {
 
 	public Camera cameraInstance;
-	public GameObject[] balls;
+	 GameObject[] balls;
 	public GameObject ballInit,bombInit;
 	public float timeLeft;
 	public Text timerText;
@@ -33,15 +33,17 @@ public class GameController : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-		LevelControl.startLevelGameSituation();
+		LevelControl.init();
+		LevelControl.loadLevelGameSituation();
 		playing = false;
-		ballInit = GameObject.Instantiate( UnityEditor.AssetDatabase.LoadAssetAtPath("Assets/prefab/ball.prefab", typeof(GameObject)) )as GameObject;
-		bombInit = GameObject.Instantiate( UnityEditor.AssetDatabase.LoadAssetAtPath("Assets/prefab/BombSpark.prefab", typeof(GameObject)) )as GameObject;
 		balls=new GameObject[6];
+		//ballInit = GameObject.Instantiate( UnityEditor.AssetDatabase.LoadAssetAtPath("Assets/prefab/ball.prefab", typeof(GameObject)) )as GameObject;
+		//bombInit = GameObject.Instantiate( UnityEditor.AssetDatabase.LoadAssetAtPath("Assets/prefab/BombSpark.prefab", typeof(GameObject)) )as GameObject;
 		///////////////////////////////////////////////////////////////////////////////////////
 		// LevelControl class
 		LevelControl.setRequierLevel (ballInit,bombInit);
-		for (int i=0; i<6; i++) {
+		for (int i=0; i<6; i++)
+		{
 			balls [i] = LevelControl.balls [i];
 		}
 		///////////////////////////////////////////////////////////////////////////////////////
@@ -66,8 +68,10 @@ public class GameController : MonoBehaviour
 		}
 	}
 //-------------------------------------------------------------	
-	public void startGame ()
+	public void playGame ()
 	{
+		//for set unvisible buttons
+		LevelControl.playGameSituation();
 		playing=true;
 		hat_controller_Class.toggleControl (true);
 		StartCoroutine (Spawn ());
@@ -81,11 +85,14 @@ public class GameController : MonoBehaviour
 		playing=false;
 		hat_controller_Class.toggleControl (false);
 		LevelControl.setTimer(Mathf.RoundToInt(timeLeft));
+		LevelControl.setScore(score_Class.Score);
 
 	}
 	//-------------------------------------------------------------	
 	public void resumeGame ()
 	{
+		//for set unvisible buttons
+		LevelControl.playGameSituation();
 		score_Class.Score=LevelControl.score;
 		score_Class.updateScore();
 
@@ -100,11 +107,24 @@ public class GameController : MonoBehaviour
 	//-------------------------------------------------------------	
 	public void restartGame ()
 	{
+		//for set unvisible buttons
+		LevelControl.playGameSituation();
 		StopCoroutine(Spawn ());
 		playing=false;
 		hat_controller_Class.toggleControl (false);
 		Application.LoadLevel(Application.loadedLevel);
 
+	}
+	//-------------------------------------------------------------	
+	public void exitGame ()
+	{
+		//for set unvisible buttons
+		LevelControl.playGameSituation();
+		StopCoroutine(Spawn ());
+		playing=false;
+		hat_controller_Class.toggleControl (false);
+		Application.Quit();
+		
 	}
 //-------------------------------------------------------------	
 	IEnumerator Spawn ()

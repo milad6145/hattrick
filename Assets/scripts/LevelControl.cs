@@ -16,7 +16,7 @@ public static class LevelControl  {
 	public static Text gameOverText;
 	public static Text gameCompleteText;
 	public static Text masal_text;
-	public static Text menu;
+	public static Button menu;
 	public static Button restart_Button;
 	public static Button start_Button;
 	public static Button exit_Button;
@@ -34,8 +34,8 @@ public static class LevelControl  {
 		gameOverText=GameObject.Find("game_over_text").GetComponent<Text>();
 		gameCompleteText=GameObject.Find("game_complete_text").GetComponent<Text>();
 		masal_text=GameObject.Find("masal_text").GetComponent<Text>();
-		masal_text=GameObject.Find("menu").GetComponent<Text>();
 		//////////////////////////////////////////////////////////////
+		menu=GameObject.Find("menu").GetComponent<Button>();
 		start_Button=GameObject.Find("start_Button").GetComponent<Button>();
 		exit_Button=GameObject.Find("exit_Button").GetComponent<Button>();
 		resume_Button=GameObject.Find("resume_Button").GetComponent<Button>();
@@ -55,7 +55,6 @@ public static class LevelControl  {
 		ball=ball_;
 		bomb=bomb_;
 		//set ball and bomb refrence for create instance
-		init();
 		// load player data class from bin file for get level 
 		switch(loadLevelGame())
 		{
@@ -116,9 +115,10 @@ public static class LevelControl  {
 
 	//-------------------------------------------------------------
 	///  set situation for show menu in start level game
-	public static void startLevelGameSituation()
+	public static void loadLevelGameSituation()
 	{
 		LevelControl.gameCompleteText.gameObject.SetActive(false);
+		LevelControl.gameOverText.gameObject.SetActive(false);
 		LevelControl.masal_text.gameObject.SetActive(false);
 		LevelControl.menu.gameObject.SetActive(false);
 		////////////////////////////////////////////////////////////////////////////
@@ -190,10 +190,10 @@ public static class LevelControl  {
 	///  set situation for play game
 	public static void playGameSituation()
 	{
-		LevelControl.gameOverText.gameObject.SetActive(true);
+		LevelControl.gameOverText.gameObject.SetActive(false);
 		LevelControl.gameCompleteText.gameObject.SetActive(false);
 		LevelControl.masal_text.gameObject.SetActive(false);
-		LevelControl.menu.gameObject.SetActive(false);
+		LevelControl.menu.gameObject.SetActive(true);
 		////////////////////////////////////////////////////////////////////////////
 		LevelControl.splashScreen.gameObject.SetActive(false);
 		LevelControl.start_Button.gameObject.SetActive(false);
