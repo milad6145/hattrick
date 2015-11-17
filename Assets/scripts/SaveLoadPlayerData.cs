@@ -4,39 +4,43 @@ using System.Collections.Generic;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 
-public static class SaveLoadPlayerData {
+public static class SaveLoadPlayerData
+{
 
 	//public static int experiencePoints=0;
-	public static int playerLevel=0;
-	public static void Save()
+	public static int playerLevel = 0;
+
+	public static void Save ()
 	{
-		BinaryFormatter bf = new BinaryFormatter();
-		FileStream file = File.Open(Application.persistentDataPath + "/gameInfo.dat",
+		FileStream file;
+		BinaryFormatter bf = new BinaryFormatter ();
+		if (File.Exists (Application.persistentDataPath + "/gameInfo.dat")) {
+			file = File.Open (Application.persistentDataPath + "/gameInfo.dat",
 		                            FileMode.Open);
-		
-		PlayerData data = new PlayerData();
+		} else {
+			file= File.Create (Application.persistentDataPath + "/gameInfo.dat");
+		}
+		PlayerData data = new PlayerData ();
 		//data.experiencePoints = experiencePoints;
 		data.playerLevel = playerLevel;
 		
-		bf.Serialize(file, data);
-		file.Close();
+		bf.Serialize (file, data);
+		file.Close ();
 	}
 	
-	public static void Load() {
-		if(File.Exists(Application.persistentDataPath + "/gameInfo.dat"))
-		{
-			BinaryFormatter bf = new BinaryFormatter();
-			FileStream file = File.Open(Application.persistentDataPath + "/gameInfo.dat",
+	public static void Load ()
+	{
+		if (File.Exists (Application.persistentDataPath + "/gameInfo.dat")) {
+			BinaryFormatter bf = new BinaryFormatter ();
+			FileStream file = File.Open (Application.persistentDataPath + "/gameInfo.dat",
 			                            FileMode.Open);
-			PlayerData data = (PlayerData)bf.Deserialize(file);
-			file.Close();
+			PlayerData data = (PlayerData)bf.Deserialize (file);
+			file.Close ();
 			
 			//experiencePoints = data.experiencePoints;
 			playerLevel = data.playerLevel;
-		}
-		else
-		{
-			playerLevel=0;
+		} else {
+			playerLevel = 0;
 		}
 	}
 }

@@ -16,9 +16,11 @@ public class GameController : MonoBehaviour
 	public GameObject spalshScreen;
 	public GameObject startButton;
 	public GameObject exitButton;
+	public GameObject sky;
 	////////////////////////////////////////////////////////////////////////////////
 	public hatController hat_controller_Class;
 	public score score_Class;
+	private Coroutine instanceProcess = null;
 //-------------------------------------------------------------
 	private Rigidbody2D body2d;
 	private float maxWidth;
@@ -41,7 +43,7 @@ public class GameController : MonoBehaviour
 		//bombInit = GameObject.Instantiate( UnityEditor.AssetDatabase.LoadAssetAtPath("Assets/prefab/BombSpark.prefab", typeof(GameObject)) )as GameObject;
 		///////////////////////////////////////////////////////////////////////////////////////
 		// LevelControl class
-		LevelControl.setRequierLevel (ballInit,bombInit);
+		LevelControl.setRequierLevel (ballInit,bombInit,sky);
 		for (int i=0; i<6; i++)
 		{
 			balls [i] = LevelControl.balls [i];
@@ -72,17 +74,24 @@ public class GameController : MonoBehaviour
 	{
 		//for set unvisible buttons
 		LevelControl.playGameSituation();
+		timeLeft=20;
+		LevelControl.setRequierLevel (ballInit,bombInit,sky);
+		for (int i=0; i<6; i++)
+		{
+			balls [i] = LevelControl.balls [i];
+		}
 		playing=true;
 		hat_controller_Class.toggleControl (true);
-		StartCoroutine (Spawn ());
-
+		instanceProcess = StartCoroutine(Spawn());
 	}
 	//-------------------------------------------------------------	
 	public void pauseGame ()
 	{
-		LevelControl.pauseGameSituation();
-		StopCoroutine(Spawn ());
+		StopCoroutine(instanceProcess);
 		playing=false;
+		LevelControl.pauseGameSituation();
+
+
 		hat_controller_Class.toggleControl (false);
 		LevelControl.setTimer(Mathf.RoundToInt(timeLeft));
 		LevelControl.setScore(score_Class.Score);
@@ -101,7 +110,7 @@ public class GameController : MonoBehaviour
 
 		playing=true;
 		hat_controller_Class.toggleControl (true);
-		StartCoroutine (Spawn ());
+		instanceProcess = StartCoroutine(Spawn());
 
 	}
 	//-------------------------------------------------------------	
@@ -109,7 +118,7 @@ public class GameController : MonoBehaviour
 	{
 		//for set unvisible buttons
 		LevelControl.playGameSituation();
-		StopCoroutine(Spawn ());
+		StopCoroutine(instanceProcess);
 		playing=false;
 		hat_controller_Class.toggleControl (false);
 		Application.LoadLevel(Application.loadedLevel);
@@ -120,14 +129,14 @@ public class GameController : MonoBehaviour
 	{
 		//for set unvisible buttons
 		LevelControl.playGameSituation();
-		StopCoroutine(Spawn ());
+		StopCoroutine(instanceProcess);
 		playing=false;
 		hat_controller_Class.toggleControl (false);
 		Application.Quit();
 		
 	}
 //-------------------------------------------------------------	
-	IEnumerator Spawn ()
+	public IEnumerator Spawn ()
 	{
 		yield return new WaitForSeconds (1.0f);
 		playing = true;
@@ -139,10 +148,14 @@ public class GameController : MonoBehaviour
 			Instantiate (ball, spawnPosition, spawnRotaion);
 			yield return new WaitForSeconds (Random.Range (1.0f, 2.0f));
 		}
+		LevelControl.setScore(score_Class.Score);
 		yield return new WaitForSeconds (2.0f);
-		gameOverText.SetActive (true);
+		LevelControl.showMessageInEndOfGame();
 		yield return new WaitForSeconds (2.0f);
-		restartButton.SetActive (true);
+		LevelControl.showMasalInEndOfGame();
+		LevelControl.saveLevelGame();
+		yield return new WaitForSeconds (5.0f);
+		LevelControl.showMenuInEndOfGame();
 	}
 //-------------------------------------------------------------
 	public void updateText ()
